@@ -1,3 +1,11 @@
+.app-btns {
+	font-family: "Arial", sans-serif;
+	display: flex;
+  align-items: center;
+	gap: 20px;
+  padding-bottom: 20px;
+}
+
 .welcome {
 	font-family: "Arial", sans-serif;
 	width: 60%;

@@ -4,6 +4,7 @@ import { ThemeContext } from "./context/ThemeContext";
 import { ThemeButton } from "./components/ThemeButton/ThemeButton";
 import { LoginForm } from "./components/LoginForm/LoginForm";
 import { UserContext } from "./context/UserContext";
+import { LanguageSelector } from "./components/LanguageSelector/LanguageSelector";
 
 export const App = () => {
 	const { user } = useContext(UserContext);
@@ -11,7 +12,10 @@ export const App = () => {
 		<>
 			<h1>React - Context</h1>
 
-			<ThemeButton />
+			<div className="app-btns">
+				<ThemeButton />
+				<LanguageSelector />
+			</div>
 
 			<div className="login-form">
 				<LoginForm />

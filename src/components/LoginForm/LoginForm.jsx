@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import "./LoginForm.css"
 import { UserContext } from "../../context/UserContext";
+import { LanguageContext } from "../../context/LanguageContext";
 
 const INITIAL_STATE = {
 	email: "",
@@ -11,6 +12,7 @@ const INITIAL_STATE = {
 export const LoginForm = () => {
 	const [loginData, setLoginData] = useState(INITIAL_STATE);
 	const userContext = useContext(UserContext);
+    const {lang, texts} = useContext(LanguageContext);
 
 	const onInputChange = (event) => {
 		const { name, value } = event.target;
@@ -31,22 +33,24 @@ export const LoginForm = () => {
 
 	return (
 		<div className="login-container">
-			<p>Nombre</p>
+			<p>{texts[lang].name}</p>
 			<input type="text" name="name" value={loginData.name} onChange={onInputChange} />
-			<p>Email</p>
+			
+            <p>{texts[lang].email}</p>
 			<input type="email" name="email" value={loginData.email} onChange={onInputChange} />
-			<p>Rol</p>
+			
+            <p>{texts[lang].role}</p>
 			<select name="rol" value={loginData.rol} onChange={onInputChange}>
-				<option value="user">Usuario</option>
-				<option value="admin">Admin</option>
+				<option value="user">{texts[lang].user}</option>
+				<option value="admin">{texts[lang].adminRole}</option>
 			</select>
 
 			<div>
-				<button onClick={onSubmit}>{userContext.user ? "Log out" : "Log in"}</button>
+				<button onClick={onSubmit}>{userContext.user ? texts[lang].logout : texts[lang].login}</button>
 			</div>
 
 			<div>
-				{userContext.user?.rol === "admin" && <button>Administrar</button>}
+				{userContext.user?.rol === "admin" && <button>{texts[lang].admin}</button>}
 			</div>
 		</div>
 	);
