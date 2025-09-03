@@ -5,13 +5,16 @@ import { App } from "./App.jsx";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
 import { UserProvider } from "./context/UserContext.jsx";
 import { LanguageProvider } from "./context/LanguageContext.jsx";
+import { CartProvider } from "./context/CartContext.jsx";
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
 		<LanguageProvider>
 			<UserProvider>
 				<ThemeProvider>
-					<App />
+					<CartProvider>
+						<App />
+					</CartProvider>
 				</ThemeProvider>
 			</UserProvider>
 		</LanguageProvider>
