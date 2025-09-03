@@ -1,0 +1,10 @@
+.welcome {
+	font-family: "Arial", sans-serif;
+	width: 60%;
+	margin: 10px 4px;
+	padding: 25px;
+
+	font-size: 16px;
+	color: #555;
+	font-weight: bold;
+}
